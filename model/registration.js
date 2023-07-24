@@ -14,7 +14,7 @@ const dataModel = mongoose.Schema({
     Gender : {type:String, required: true},
     phone : {type:String, required: true},
     dob : {type:String, required: true},
-    Image : {type:String, required: true},
+    // Image : {type:String, required: true},
 },{strict:false})
 
 const data = mongoose.model('dataTable',dataModel);
