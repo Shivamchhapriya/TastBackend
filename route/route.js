@@ -9,6 +9,10 @@ const route = express.Router()
 
 
 route.post("/postdata",uploadsFile,postDatacontroller)
+route.get("/getdata",(req,res)=>{
+    res.send("Api Working")
+})
+
 
 
 
