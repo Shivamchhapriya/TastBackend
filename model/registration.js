@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-const axios = require('axios');
 
 const dataModel = mongoose.Schema({
     name : {type:String, required: true},
@@ -14,14 +13,15 @@ const dataModel = mongoose.Schema({
     Gender : {type:String, required: true},
     phone : {type:String, required: true},
     dob : {type:String, required: true},
-    Image : {type:String, required: true},
+    Image : {type:String, required: false},
 },{strict:false})
 
-const data = mongoose.model('dataTable',dataModel);
+const data = mongoose.model('task',dataModel);
 
 
 const postDataTable = async(req)=>{
     try{
+        
         const dt = await data.create(req);
         return{ dt:dt,status:200,message:'success'}
 

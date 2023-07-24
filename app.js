@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
  mongoose
- .connect('mongodb://localhost:27017/exchange')
+ .connect( 'mongodb+srv://yashwantDollop:heftpass@cluster0.nffj03j.mongodb.net/HEFT')
  .then(() => console.log("DB connection successful!"))
  .catch((error) => console.log(error));
 
