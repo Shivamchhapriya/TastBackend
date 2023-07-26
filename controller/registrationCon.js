@@ -1,4 +1,4 @@
-const { postDataTable } = require("../model/registration");
+const { postDataTable, ImgData } = require("../model/registration");
 
 const postDatacontroller = async(req,res)=>{
     // const images=req.file.filename;
@@ -9,4 +9,11 @@ const postDatacontroller = async(req,res)=>{
 
     res.send(data)
 }
-module.exports={postDatacontroller};
+const postImage = async(req,res)=>{
+    const images = req.file.filename;
+    const tempImg = {images}
+    const data =await ImgData(tempImg);
+    res.send(data)
+
+}
+module.exports={postDatacontroller,postImage};

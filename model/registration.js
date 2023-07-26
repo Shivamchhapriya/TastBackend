@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+// const { array } = require("prop-types");
+const ObjectId = mongoose.Types.ObjectId;
 
 
 const dataModel = mongoose.Schema({
@@ -13,11 +15,15 @@ const dataModel = mongoose.Schema({
     Gender : {type:String, required: true},
     phone : {type:String, required: true},
     dob : {type:String, required: true},
-    // Image : {type:String, required: true},
 },{strict:false})
 
 const data = mongoose.model('taskData',dataModel);
 
+const Images = mongoose.Schema({
+    Image : {type:String},
+   
+},{strict:false})
+const dataI = mongoose.model('imgData',Images);
 
 const postDataTable = async(req)=>{
     try{
@@ -30,5 +36,16 @@ const postDataTable = async(req)=>{
 
     }
 }
+const ImgData = async(req)=>{
+    try{
+        
+        const dt = await dataI.create(req);
+        return{ dt:dt,status:200,message:'success'}
 
-module.exports={postDataTable}
+    }catch(error){
+        return{ status:400,message:error.message}
+
+    }
+}
+
+module.exports={postDataTable,ImgData}
