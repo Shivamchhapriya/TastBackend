@@ -13,10 +13,10 @@ const dataModel = mongoose.Schema({
     Gender : {type:String, required: true},
     phone : {type:String, required: true},
     dob : {type:String, required: true},
-    Image : {type:String, required: false},
+    // Image : {type:String, required: true},
 },{strict:false})
 
-const data = mongoose.model('task',dataModel);
+const data = mongoose.model('taskData',dataModel);
 
 
 const postDataTable = async(req)=>{
